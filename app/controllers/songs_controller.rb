@@ -3,10 +3,8 @@ class SongsController < ApplicationController
     if Artist.find_by(:name => params[:artist_id])
         redirect_to artists_path
     else
-@songs = Song.all
+      @songs = Song.all
     end
-
-
   end
 
   def show
