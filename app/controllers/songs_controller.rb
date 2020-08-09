@@ -1,6 +1,5 @@
 class SongsController < ApplicationController
   def index
-
     if params[:artist_id]
       artist = Artist.find_by(:id => params[:artist_id])
       if artist
@@ -14,8 +13,11 @@ class SongsController < ApplicationController
   end
 
   def show
-    puts "test"
     @song = Song.find(params[:id])
+    @artist = Artist.find(params[:artist_id])
+    if @song.nil? 
+      redirect_to artist_path(@artist)
+    end
   end
 
   def new
