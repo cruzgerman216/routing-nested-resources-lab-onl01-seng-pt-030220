@@ -14,6 +14,7 @@ class SongsController < ApplicationController
 
   def show
     @song = Song.find(params[:id])
+    puts @song
     @artist = Artist.find_by(:id => params[:artist_id])
     if @song.nil?
       redirect_to artist_path(@artist)
